@@ -21,7 +21,7 @@ message: 'Orders was created'
 router.post('/orderId',(req,res,next)=>
 {
 
-    res.status(200).json({
+    res.status(201).json({
 message: 'Orders details',
 orderId: req.params.orderId
     });
