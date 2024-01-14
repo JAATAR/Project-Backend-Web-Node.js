@@ -2,8 +2,24 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser  = require('body-parser');
+const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+
+mongoose.connect('mongodb+srv://jaatarsoufian:wpu2hWsWeEry@cluster.vykzrhy.mongodb.net/?retryWrites=true&w=majority', 
+{
+    useNewUrlParser: true,
+  useUnifiedTopology: true,
+    useMongoClient: true
+}
+);
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended:false}));
