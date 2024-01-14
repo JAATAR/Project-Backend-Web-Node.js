@@ -6,7 +6,10 @@ const Order = require('../models/order');
 const Product = require('../models/product');
 const product = require('../models/product');
 
+
 //Handle incoming GET requests to/orders
+
+
 router.get('/',(req,res,next)=>
 {
 Order.find()
