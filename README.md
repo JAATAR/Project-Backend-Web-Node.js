@@ -55,6 +55,5 @@ Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen e
 
 De API is beschikbaar op `http://localhost:3000`.
 
-**Opmerking:** Zorg ervoor dat MongoDB correct is geconfigureerd en draait op de opgegeven URI in `app.js`.
 
 
