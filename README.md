@@ -3,7 +3,7 @@
 
 ## Beschrijving
 
-Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen en gebruikers. Het omvat een RESTful API die interacties mogelijk maakt met een MongoDB-database. Hieronder volgt een uitleg van de gebruikte bronnen en hoe deze zijn geïntegreerd in het project.
+Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen en users. Het omvat een RESTful API die interacties mogelijk maakt met een MongoDB-database. Hieronder volgt een uitleg van de gebruikte bronnen en hoe deze zijn geïntegreerd in het project.
 
 ## Gebruikte Bronnen
 
@@ -23,7 +23,7 @@ Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen e
    - Vereenvoudigt het versturen van HTTP-verzoeken en inspecteren van de respons.
 
 5. [bcrypt.js](https://github.com/kelektiv/node.bcrypt.js)
-   - Library voor veilige opslag van wachtwoorden in de gebruikersdatabase.
+   - Hier heb ik een Library gebruikt voor veilige opslag van wachtwoorden in de gebruikersdatabase.
    - GitHub-pagina geraadpleegd voor documentatie en integratie-instructies.
 
 6. [YouTube Tutorial](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q&index=1)
@@ -51,7 +51,7 @@ Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen e
 
 1. Zorg ervoor dat Node.js is geïnstalleerd.
 2. Voer `npm install` uit in de hoofdmap van het project.
-3. Start de server met `node server.js`.
+3. Start de server met `npm start`.
 
 De API is beschikbaar op `http://localhost:3000`.
 
