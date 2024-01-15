@@ -20,7 +20,7 @@ Dit Node.js project is ontwikkeld voor het beheren van producten, bestellingen e
 
 4. [Postman](https://www.postman.com/)
    - Handige tool voor het testen van API-eindpunten tijdens ontwikkeling.
-   - Vereenvoudigt het versturen van HTTP-verzoeken en inspecteren van de respons.
+   - Vereenvoudigt het versturen van HTTP-verzoeken en inspecteren van de response.
 
 5. [bcrypt.js](https://github.com/kelektiv/node.bcrypt.js)
    - Hier heb ik een Library gebruikt voor veilige opslag van wachtwoorden in de gebruikersdatabase.
