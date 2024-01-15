@@ -1,6 +1,8 @@
+//modules en modellen
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+//Package 'multer' voor het verwerken van bestandsuploads 
 const multer = require('multer');
 const upload = multer({dest: 'uploads/'});
 const storage = multer.diskStorage({
@@ -17,7 +19,7 @@ cb(null, new Date().toISOString() + file.originalname);
 const Product = require('../models/product');
 const { request } = require('../../app');
 
-
+// Eindpunt voor het verwerken van GET-verzoeken naar /products
 router.get('/', (req, res, next) => {
     Product.find()
     .select('name price _id productImage')
@@ -57,7 +59,7 @@ router.get('/', (req, res, next) => {
       });
   });
   
-  
+  // Eindpunt voor het verwerken van POST-verzoeken naar /products
 
 router.post('/', upload.single('productImage'),(req,res,next) => {
     console.log(req.file);
@@ -98,7 +100,7 @@ res.status(500).json({
 
 
     });
-
+// Eindpunt voor het verwerken van GET-verzoeken naar een specifiek product
     router.get('/:productId', (req,res,next) => {
         const id = req.params.productId;
        Product.findById(id)
@@ -131,7 +133,7 @@ res.status(500).json({
     
     });
 
-
+// Eindpunt voor het verwerken van PATCH-verzoeken naar een specifiek product
 
     router.patch('/:productId', (req,res,next) => {
         const id = req.params.productId;
@@ -158,7 +160,7 @@ updateOps[ops.propName] = ops.value;
         });
        });
     });
-
+// Eindpunt voor het verwerken van DELETE-verzoeken naar een specifiek product
     router.delete('/:productId', (req,res,next) => {
         const id = req.params.productId;
         Product.remove({
@@ -181,5 +183,5 @@ updateOps[ops.propName] = ops.value;
             });
         });
      });
-
+//router voor gebruik in andere bestanden
     module.exports = router;

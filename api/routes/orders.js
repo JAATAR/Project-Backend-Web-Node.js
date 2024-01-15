@@ -1,3 +1,4 @@
+//modules en modellen
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -7,8 +8,7 @@ const Product = require('../models/product');
 const product = require('../models/product');
 
 
-//Handle incoming GET requests to/orders
-
+// Eindpunt voor het verwerken van GET-verzoeken naar /orders
 
 router.get('/',(req,res,next)=>
 {
@@ -46,7 +46,7 @@ Order.find()
     });
     
 });
-
+// Eindpunt voor het verwerken van POST-verzoeken naar /orders
 router.post('/',(req,res,next)=>
 {
 Product.findById(req.body.productId)
@@ -93,7 +93,7 @@ Product.findById(req.body.productId)
 
 
 });
-
+// Eindpunt voor het verwerken van GET-verzoeken naar een specifieke order
 router.get('/:orderId',(req,res,next)=>
 {
 Order.findById(req.params.orderId)
@@ -126,6 +126,7 @@ Order.findById(req.params.orderId)
     });
 });
 
+// Eindpunt voor het verwerken van DELETE-verzoeken naar een specifieke order
 router.delete('/orderId',(req,res,next)=>
 {
 Order.remove({
@@ -154,5 +155,5 @@ then(result=>
 });
 
 
-
+//router voor gebruik in andere bestanden
     module.exports = router;

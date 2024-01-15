@@ -1,11 +1,15 @@
+//modules en route-bestanden
 const express = require('express');
 const app = express();
+//package voor HTTP-request logging
 const morgan = require('morgan');
+//Body-parser voor het verwerken van HTTP-verzoekinhoud
 const bodyParser  = require('body-parser');
 const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/user');
+//MongoDb-database connection
 
 mongoose.connect('mongodb+srv://jaatarsoufian:wpu2hWsWeEry@cluster.vykzrhy.mongodb.net/?retryWrites=true&w=majority', 
 
@@ -18,7 +22,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
 });
-
+//Congfig van express-app
 app.use(morgan('dev'));
 app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended:false}));
@@ -37,7 +41,7 @@ return res.status(200).json({});
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
-
+//Error-handling middleware
 app.use((req,res,next)=>
 {
 

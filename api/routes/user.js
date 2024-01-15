@@ -1,10 +1,12 @@
+//modules en modellen
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+//package voor wachtwoord protection en hashing password
 const bcrypt = require('bcrypt');
 
 const User = require('../models/user');
-
+// Eindpunt voor het verwerken van POST-verzoeken naar /signup
 router.post('/signup',(req,res,next)=>
 {
     User.find({email: req.body.email}).exec()
@@ -57,10 +59,9 @@ router.post('/signup',(req,res,next)=>
             }
         });
     
-    
+    });
 
-
-});
+    // Eindpunt voor het verwerken van POST-verzoeken naar /login
 router.post('/login', (req, res, next) => {
 User.find({ email:req.body.email}).exec().
 then(user=>
@@ -100,7 +101,7 @@ res.status(500).json({
 });
 
 
-
+// Eindpunt voor het verwerken van DELETE-verzoeken naar een specifieke user
 router.delete('/:userId',(req,res,next)=>
 {
 User.remove({_id: req.body.userId}).exec()
@@ -117,5 +118,5 @@ User.remove({_id: req.body.userId}).exec()
     });
     });
 });
-
+//router voor gebruik in andere bestanden
 module.exports = router;
